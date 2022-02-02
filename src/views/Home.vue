@@ -1,5 +1,26 @@
 <template>
   <div class="container">
+
+    <vue-particles
+      color="#FFF"
+      :particleOpacity="0"
+      :particlesNumber="90"
+      shapeType="circle"
+      :particleSize="8"
+      linesColor="#0a0f1d"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.3"
+      :linesDistance="200"
+      :moveSpeed="2"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+      class="content-particles"
+    >
+    </vue-particles>
+
     <div class="d-flex align-center container-top">
       <v-img
         alt="Linhas da parte de cima da pagina"
@@ -115,6 +136,7 @@
           max-height="390"
           show-arrows-on-hover
           hide-delimiter-background
+          hide-delimiters
           interval="2100"
         >
           <v-carousel-item
@@ -133,12 +155,26 @@
       </v-card>
     </div>
 
-    <div>
+    <div class="bottom-sm">
       <v-img
         alt="Linhas da parte de baixo da pagina"
         src="img/home-baixo.png"
         class="faixa-bottom"
       />
+
+      <div class="social-medias d-flex align-center">
+        <div class="circle-social-medias d-flex align-center justify-center">
+          <v-icon
+            size="35"
+            class="icon-orange"
+          >
+            mdi-facebook
+          </v-icon>
+        </div>
+        <div class="circle-social-medias"></div>
+        <div class="circle-social-medias"></div>
+        <div class="circle-social-medias"></div>
+      </div>
     </div>
   </div>
 
@@ -167,6 +203,14 @@
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
+  }
+
+  .content-particles{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   .circle,
@@ -234,6 +278,25 @@
     height: 200px;
     position: relative;
     right: 45px;
+  }
+
+  .bottom-sm{
+    position: relative;
+  }
+
+  .social-medias{
+    position: absolute;
+    bottom: 15px;
+    right: 40px;
+  }
+
+  .circle-social-medias{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--orange);
+    margin-left: 8px;
+    margin-right: 8px;
   }
 
 </style>
