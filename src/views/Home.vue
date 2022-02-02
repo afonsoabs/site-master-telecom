@@ -2,17 +2,17 @@
   <div class="container">
 
     <vue-particles
-      color="#FFF"
-      :particleOpacity="0"
+      color="#0a0f1d"
+      :particleOpacity="0.28"
       :particlesNumber="90"
       shapeType="circle"
-      :particleSize="8"
+      :particleSize="2"
       linesColor="#0a0f1d"
       :linesWidth="1"
       :lineLinked="true"
-      :lineOpacity="0.3"
-      :linesDistance="200"
-      :moveSpeed="2"
+      :lineOpacity="0.1"
+      :linesDistance="250"
+      :moveSpeed="2.3"
       :hoverEffect="true"
       hoverMode="grab"
       :clickEffect="true"
@@ -32,13 +32,13 @@
     
     <div class="d-flex justify-space-around align-center box-carrousel">
       
-      <div class="d-flex pt-9 pl-9">
+      <div class="d-flex mt-15 ml-14 box-menu">
 
         <v-hover
           v-slot="{ hover }"
         >
           <div
-            class="pr-4 pt-2 pb-2 mr-5 d-flex flex-column align-center justify-center box"
+            class="pl-4 pr-4 pt-2 pb-2 mr-5 ml-5 d-flex flex-column align-center justify-center box"
             :class="hover ? 'hover-box' : ''"
           >
             <div
@@ -129,6 +129,7 @@
       <v-card
         min-width="390"
         min-height="390"
+        class="carrousel"
       >
         <v-carousel
           cycle
@@ -211,6 +212,18 @@
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 1;
+  }
+
+  .box-menu,
+  .carrousel{
+    border-radius: 8px;
+    z-index: 2;
+    padding: 0.3rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    box-shadow: var(--shadow);
+    background: rgba(255, 255, 255,0.65);
   }
 
   .circle,
@@ -278,6 +291,10 @@
     height: 200px;
     position: relative;
     right: 45px;
+  }
+
+  .carrousel{
+    padding: 0;
   }
 
   .bottom-sm{

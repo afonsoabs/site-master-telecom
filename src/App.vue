@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
   .main{
-    height: 100vh;
+    height: 100%;
   }
 </style>
 

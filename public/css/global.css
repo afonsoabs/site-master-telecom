@@ -9,7 +9,7 @@
 	--blue: #0a0f1d;
 	--branco: rgba(255,255,255,0.9);
 	--opacity: 0.7;
-	--shadow: 0px 2px 5px rgba(0,0,0,0.44);
+	--shadow: 1px 2px 3px rgba(0,0,0,0.24);
 }
 
 .v-toolbar__content, .v-toolbar__extension{
