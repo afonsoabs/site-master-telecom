@@ -120,7 +120,7 @@
               class="text-circle text-center"
               :class="hover ? 'text-circle-hover' : ''"
             >
-              Solicitar Suporte
+              Solicitar Contato
             </span>
           </div>
         </v-hover>
@@ -163,34 +163,48 @@
         class="faixa-bottom"
       />
 
-      <div class="social-medias d-flex align-center">
-        
-        <v-hover
-          v-slot="{ hover }"
-        >
-          <v-img
-            width="45"
-            height="45"
-            src="img/icons2/facebook.png"
-            class="icone-sm"
-            :class="hover ? 'icone-sm-hover' : ''"
+      <div>
+        <div class="social-medias d-flex align-center">
+          
+          <v-hover
+            v-slot="{ hover }"
           >
-          </v-img>
-        </v-hover>
+            <v-img
+              width="45"
+              height="45"
+              src="img/icons2/facebook.png"
+              class="icone-sm"
+              :class="hover ? 'icone-sm-hover' : ''"
+            >
+            </v-img>
+          </v-hover>
 
-        <v-hover
-          v-slot="{ hover }"
-        >
+          <v-hover
+            v-slot="{ hover }"
+          >
+            <v-img
+              width="35"
+              height="35"
+              src="img/icons2/instagram.png"
+              class="icone-sm"
+              :class="hover? 'icone-sm-hover' : ''"
+            >
+            </v-img>
+          </v-hover>
+        </div>
+
+        <div class="button-whatsapp d-flex">
+
           <v-img
-            width="50"
-            height="50"
-            src="img/icons2/instagram.png"
-            class="icone-sm"
-            :class="hover? 'icone-sm-hover' : ''"
+            width="60"
+            height="60"
+            src="img/icons2/whatsApp.png"
+            class="icon-sm-wpp"
           >
           </v-img>
-        </v-hover>
+        </div>
       </div>
+
     </div>
   </div>
 
@@ -213,6 +227,14 @@
 </script>
 
 <style scoped>
+
+  .v-card--reveal{
+    align-items: center;
+    left: 0;
+    justify-content: center;
+    position: absolute;
+    width: 150px;
+  }
 
   .container{
     display: flex;
@@ -292,11 +314,7 @@
     transition: 0.6s;
   }
 
-  .hover-icon{
-    color: var(--blue)!important;
-    transition: 0.6s;
-  }
-  
+  .hover-icon,
   .icon-orange{
     color: var(--blue)!important;
     transition: 0.6s;
@@ -316,17 +334,47 @@
     position: relative;
   }
 
-  .social-medias{
+  .social-medias,
+  .button-whatsapp{
     position: absolute;
-    bottom: 30px;
-    right: 40px;
+    bottom: 15px;
+    left: 120px;
     z-index: 2;
   }
 
   .icone-sm{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 6px;
+    margin-right: 6px;
     cursor: pointer;
+  }
+
+  .button-whatsapp{
+    left: unset;
+    right: 40px;
+    bottom: 30px;
+    cursor: pointer;
+  }
+
+  .icon-sm-wpp{
+    animation: wpp 1s infinite ease-in-out;
+  }
+
+  @keyframes wpp{
+    
+    0%{
+      transform: scale(1);
+      transition: 1s;
+    }
+
+    50%{
+      transform: scale(1.1);
+      transition: 1s;
+    }
+
+    100%{
+      transform: scale(1);
+      transition: 1s;
+    }
   }
 
 </style>
