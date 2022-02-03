@@ -4,15 +4,15 @@
     <vue-particles
       color="#0a0f1d"
       :particleOpacity="0.28"
-      :particlesNumber="90"
+      :particlesNumber="100"
       shapeType="circle"
       :particleSize="2"
       linesColor="#0a0f1d"
       :linesWidth="1"
       :lineLinked="true"
       :lineOpacity="0.1"
-      :linesDistance="250"
-      :moveSpeed="2.3"
+      :linesDistance="220"
+      :moveSpeed="2"
       :hoverEffect="true"
       hoverMode="grab"
       :clickEffect="true"
@@ -164,17 +164,32 @@
       />
 
       <div class="social-medias d-flex align-center">
-        <div class="circle-social-medias d-flex align-center justify-center">
-          <v-icon
-            size="35"
-            class="icon-orange"
+        
+        <v-hover
+          v-slot="{ hover }"
+        >
+          <v-img
+            width="45"
+            height="45"
+            src="img/icons2/facebook.png"
+            class="icone-sm"
+            :class="hover ? 'icone-sm-hover' : ''"
           >
-            mdi-facebook
-          </v-icon>
-        </div>
-        <div class="circle-social-medias"></div>
-        <div class="circle-social-medias"></div>
-        <div class="circle-social-medias"></div>
+          </v-img>
+        </v-hover>
+
+        <v-hover
+          v-slot="{ hover }"
+        >
+          <v-img
+            width="50"
+            height="50"
+            src="img/icons2/instagram.png"
+            class="icone-sm"
+            :class="hover? 'icone-sm-hover' : ''"
+          >
+          </v-img>
+        </v-hover>
       </div>
     </div>
   </div>
@@ -303,17 +318,15 @@
 
   .social-medias{
     position: absolute;
-    bottom: 15px;
+    bottom: 30px;
     right: 40px;
+    z-index: 2;
   }
 
-  .circle-social-medias{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--orange);
-    margin-left: 8px;
-    margin-right: 8px;
+  .icone-sm{
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
   }
 
 </style>
