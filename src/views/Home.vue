@@ -32,128 +32,7 @@
     
     <div class="d-flex justify-space-around align-center box-carrousel">
       
-      <div class="d-flex mt-15 ml-14 box-menu">
-
-        <v-hover
-          v-slot="{ hover }"
-        >
-          <div
-            class="pl-4 pr-4 pt-2 pb-2 mr-5 ml-5 d-flex flex-column align-center justify-center box"
-            :class="hover ? 'hover-box' : ''"
-          >
-            <div
-              class="circle d-flex align-center justify-center mb-2"
-              :class="hover ? 'hover-circle' : ''"
-            >
-              <v-icon
-                size="60"
-                class="icon"
-                :class="hover ? 'hover-icon' : ''"
-              >
-                mdi-book-open-variant
-              </v-icon>
-            </div>
-
-            <span
-              class="text-circle"
-              :class="hover ? 'text-circle-hover' : ''"
-            >
-              Sobre a empresa
-            </span>
-          </div>
-        </v-hover>
-
-        <v-divider vertical></v-divider>
-
-        <v-hover
-          v-slot="{ hover }"
-        >
-          <div
-            class="pl-4 pr-4 pt-2 pb-2 mr-5 ml-5 d-flex flex-column align-center justify-center box"
-            :class="hover ? 'hover-box' : ''"
-          >
-            <div
-              class="circle-orange d-flex align-center justify-center mb-2"
-              :class="hover ? 'hover-circle' : ''"
-            >
-              <v-icon
-                size="60"
-                class="icon-orange"
-                :class="hover ? 'hover-icon' : ''"
-              >
-                mdi-text-box-check-outline
-              </v-icon>
-            </div>
-
-            <span
-              class="text-circle"
-              :class="hover ? 'text-circle-hover' : ''"
-            >
-              Conhecer os planos
-            </span>
-          </div>
-        </v-hover>
-
-        <v-divider vertical></v-divider>
-
-        <v-hover
-          v-slot="{ hover }"
-        >
-          <div
-            class="pl-4 pr-4 pt-2 pb-2 mr-5 ml-5 d-flex flex-column align-center justify-center box"
-            :class="hover ? 'hover-box' : ''"
-          >
-            <div
-              class="circle d-flex align-center justify-center mb-2"
-              :class="hover ? 'hover-circle' : ''"
-            >
-              <v-icon
-                size="60"
-                class="icon"
-                :class="hover ? 'hover-icon' : ''"
-              >
-                mdi-face-agent
-              </v-icon>
-            </div>
-
-            <span
-              class="text-circle text-center"
-              :class="hover ? 'text-circle-hover' : ''"
-            >
-              Solicitar Contato
-            </span>
-          </div>
-        </v-hover>
-      </div>
-
-      <v-card
-        min-width="390"
-        min-height="390"
-        class="carrousel"
-      >
-        <v-carousel
-          cycle
-          height="390"
-          max-height="390"
-          show-arrows-on-hover
-          hide-delimiter-background
-          hide-delimiters
-          interval="2100"
-        >
-          <v-carousel-item
-            v-for="(fotos, i) in carrousel"
-            :key="i"
-          >
-            <v-img
-              class="fill-height"
-              :src="carrousel[i]"
-              max-height="390"
-              max-width="390"
-            >
-            </v-img>
-          </v-carousel-item>
-        </v-carousel>
-      </v-card>
+      
     </div>
 
     <div class="bottom-sm">
@@ -169,42 +48,67 @@
           <v-hover
             v-slot="{ hover }"
           >
-            <v-img
-              width="45"
-              height="45"
-              src="img/icons2/facebook.png"
-              class="icone-sm"
-              :class="hover ? 'icone-sm-hover' : ''"
+
+            <v-btn
+              href="https://www.facebook.com/mastertelecom/"
+              target="_blank"
+              color="transparent"
+              elevation="0"
+              width="40"
             >
-            </v-img>
+              <v-img
+                width="45"
+                height="45"
+                src="img/icons2/facebook.png"
+                class="icone-sm"
+                :class="hover ? 'icone-sm-hover' : ''"
+              >
+              </v-img>
+            </v-btn>
           </v-hover>
 
           <v-hover
             v-slot="{ hover }"
           >
-            <v-img
-              width="35"
-              height="35"
-              src="img/icons2/instagram.png"
-              class="icone-sm"
-              :class="hover? 'icone-sm-hover' : ''"
+
+            <v-btn
+              href="https://www.instagram.com/master.telecom/"
+              target="_blank"
+              color="transparent"
+              elevation="0"
+              width="40"
             >
-            </v-img>
+              <v-img
+                width="35"
+                height="35"
+                src="img/icons2/instagram.png"
+                class="icone-sm"
+                :class="hover? 'icone-sm-hover' : ''"
+              >
+              </v-img>
+            </v-btn>
           </v-hover>
         </div>
 
         <div class="button-whatsapp d-flex">
 
-          <v-img
-            width="60"
-            height="60"
-            src="img/icons2/whatsApp.png"
-            class="icon-sm-wpp"
+          <v-btn
+            href="https://api.whatsapp.com/send?phone=5567992345355&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos."
+            target="_blank"
+            color="transparent"
+            elevation="0"
+            width="40"
           >
-          </v-img>
+            <v-img
+              width="60"
+              height="60"
+              src="img/icons2/whatsApp.png"
+              class="icon-sm-wpp"
+            >
+            </v-img>
+          </v-btn>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -324,6 +228,7 @@
     height: 200px;
     position: relative;
     right: 45px;
+    top: 40px;
   }
 
   .carrousel{
@@ -343,8 +248,8 @@
   }
 
   .icone-sm{
-    margin-left: 6px;
-    margin-right: 6px;
+    margin-left: 3px;
+    margin-right: 3px;
     cursor: pointer;
   }
 

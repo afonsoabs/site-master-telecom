@@ -21,5 +21,23 @@ export default {
   .main{
     height: 100%;
   }
+
+  .teste{
+    width: 100%;
+    height: 50%;
+    background: red;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+  }
+
+  .teste2{
+    width: 100%;
+    height: 50%;
+    background: green;
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+  }
 </style>
 
