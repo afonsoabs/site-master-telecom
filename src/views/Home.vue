@@ -290,6 +290,8 @@
           max-width="300"
           src="img/logo.png"
           class="pulse-logo mb-10"
+          transition="scale-transition"
+          contain
         >
 
 
@@ -323,7 +325,7 @@
       overlay_home(){
         setTimeout(()=>{
           this.overlay = false;
-        }, 4000)
+        }, 5800)
       },
 
       teste_link(){
