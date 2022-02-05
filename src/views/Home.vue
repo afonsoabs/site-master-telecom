@@ -30,8 +30,139 @@
       />
     </div>
     
-    <div class="d-flex justify-space-around align-center box-carrousel">
-      
+    <div class="d-flex center-page">
+      <div class="left-center-box d-flex align-center justify-center">
+
+        <div class="reduction d-flex justify-space-around align-center">
+          <div class="d-flex box-menu">
+
+            <v-hover
+              v-slot="{ hover }"
+            >
+              <div
+                class="pl-2 pr-2 pt-1 pb-1 mr-3 ml-3 d-flex flex-column align-center justify-center box"
+                :class="hover ? 'hover-box' : ''"
+              >
+                <div
+                  class="circle d-flex align-center justify-center mb-2"
+                  :class="hover ? 'hover-circle' : ''"
+                >
+                  <v-icon
+                    size="60"
+                    class="icon"
+                    :class="hover ? 'hover-icon' : ''"
+                  >
+                    mdi-book-open-variant
+                  </v-icon>
+                </div>
+
+                <span
+                  class="text-circle"
+                  :class="hover ? 'text-circle-hover' : ''"
+                >
+                  Sobre a empresa
+                </span>
+              </div>
+            </v-hover>
+
+            <v-divider vertical></v-divider>
+
+            <v-hover
+              v-slot="{ hover }"
+            >
+              <div
+                class="pl-2 pr-2 pt-1 pb-1 mr-3 ml-3 d-flex flex-column align-center justify-center box"
+                :class="hover ? 'hover-box' : ''"
+              >
+                <div
+                  class="circle-orange d-flex align-center justify-center mb-2"
+                  :class="hover ? 'hover-circle' : ''"
+                >
+                  <v-icon
+                    size="60"
+                    class="icon-orange"
+                    :class="hover ? 'hover-icon' : ''"
+                  >
+                    mdi-text-box-check-outline
+                  </v-icon>
+                </div>
+
+                <span
+                  class="text-circle"
+                  :class="hover ? 'text-circle-hover' : ''"
+                >
+                  Conhecer os planos
+                </span>
+              </div>
+            </v-hover>
+
+            <v-divider vertical></v-divider>
+
+            <v-hover
+              v-slot="{ hover }"
+            >
+              <div
+                class="pl-2 pr-2 pt-1 pb-1 mr-3 ml-3 d-flex flex-column align-center justify-center box"
+                :class="hover ? 'hover-box' : ''"
+              >
+                <div
+                  class="circle d-flex align-center justify-center mb-2"
+                  :class="hover ? 'hover-circle' : ''"
+                >
+                  <v-icon
+                    size="60"
+                    class="icon"
+                    :class="hover ? 'hover-icon' : ''"
+                  >
+                    mdi-face-agent
+                  </v-icon>
+                </div>
+
+                <span
+                  class="text-circle text-center"
+                  :class="hover ? 'text-circle-hover' : ''"
+                >
+                  Solicitar Contato
+                </span>
+              </div>
+            </v-hover>
+          </div>
+
+          <v-card
+            min-width="360"
+            min-height="360"
+            class="carrousel"
+            elevation="0"
+          >
+            <v-carousel
+              cycle
+              height="360"
+              max-height="360"
+              show-arrows-on-hover
+              hide-delimiter-background
+              hide-delimiters
+              interval="2100"
+            >
+              <v-carousel-item
+                v-for="(fotos, i) in carrousel"
+                :key="i"
+              >
+                <v-img
+                  class="fill-height"
+                  :src="carrousel[i]"
+                  max-height="360"
+                  max-width="360"
+                >
+                </v-img>
+              </v-carousel-item>
+            </v-carousel>
+          </v-card>
+        </div>
+
+      </div>
+      <div class="right-center-box">
+        <h2 class="text-central">Central do assinante</h2>
+      </div>
       
     </div>
 
@@ -132,6 +263,10 @@
 
 <style scoped>
 
+  .reduction{
+    width: 80%;
+  }
+
   .v-card--reveal{
     align-items: center;
     left: 0;
@@ -153,7 +288,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 2;
   }
 
   .box-menu,
@@ -164,7 +299,7 @@
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
     box-shadow: var(--shadow);
-    background: rgba(255, 255, 255,0.65);
+    background: rgba(255, 255, 255,0.75);
   }
 
   .circle,
@@ -224,6 +359,29 @@
     transition: 0.6s;
   }
 
+  .container-top{
+    z-index: 1;
+  }
+
+  .center-page{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .left-center-box{
+    height: 100%;
+    flex: 4;
+  }
+
+  .right-center-box{
+    display: none;
+    background: var(--orange);
+    flex: 1;
+  }
+
   .box-carrousel{
     height: 200px;
     position: relative;
@@ -233,6 +391,9 @@
 
   .carrousel{
     padding: 0;
+    margin-left: 30px;
+    background: transparent;
+    box-shadow: unset;
   }
 
   .bottom-sm{
@@ -262,6 +423,15 @@
 
   .icon-sm-wpp{
     animation: wpp 1s infinite ease-in-out;
+  }
+
+  .text-central{
+    color: var(--branco);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 15px;
+    font-weight: 900;
+    font-size: 1.3rem;
   }
 
   @keyframes wpp{
