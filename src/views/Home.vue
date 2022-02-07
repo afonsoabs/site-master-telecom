@@ -62,7 +62,7 @@
                     class="text-circle"
                     :class="hover ? 'text-circle-hover' : ''"
                   >
-                    Sobre a empresa
+                    Sobre a master
                   </span>
                 </div>
               </v-hover>
@@ -94,7 +94,7 @@
                     class="text-circle"
                     :class="hover ? 'text-circle-hover' : ''"
                   >
-                    Conhecer os planos
+                    Planos
                   </span>
                 </div>
               </v-hover>
@@ -126,7 +126,7 @@
                     class="text-circle text-center"
                     :class="hover ? 'text-circle-hover' : ''"
                   >
-                    Solicitar Contato
+                    Contato
                   </span>
                 </div>
               </v-hover>
