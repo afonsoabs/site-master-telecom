@@ -107,7 +107,7 @@
                 <div
                   class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-space-between box"
                   :class="hover ? 'hover-box' : ''"
-                  @click="teste_link()"
+                  @click="redirecionar('/about')"
                 >
                   <div
                     class="circle d-flex align-center justify-center mb-2"
@@ -316,7 +316,7 @@
     name: 'Home',
     data: ()=>{
       return{
-        overlay: true,
+        overlay: false,
         carrousel: [
           'img/teste-1.jpg',
           'img/teste-2.jpg'
@@ -341,7 +341,11 @@
         setInterval(()=>{
           window.location.href = link;
         }, 2000)
-      }
+      },
+
+      redirecionar(route) {
+        this.$router.push({ path: route });
+      },
     },
 
     mounted(){

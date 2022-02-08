@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <v-main class="main">
-      <router-view/>
+      <transition name="fade" mode="out-in">
+        <router-view/>
+      </transition>
     </v-main>
   </v-app>
 </template>
@@ -22,22 +24,15 @@ export default {
     height: 100%;
   }
 
-  .teste{
-    width: 100%;
-    height: 50%;
-    background: red;
-    position: absolute;
-    top: 0;
-    z-index: 3;
+  .fade-enter,
+  .fade-leave-to{
+    opacity: 0;
+    transform: translateX(2em);
   }
 
-  .teste2{
-    width: 100%;
-    height: 50%;
-    background: green;
-    position: absolute;
-    bottom: 0;
-    z-index: 3;
+  .fade-enter-active,
+  .fade-leave-active{
+    transition: all 0.3s ease;
   }
 </style>
 
