@@ -41,7 +41,7 @@
                 v-slot="{ hover }"
               >
                 <div
-                  class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-center box"
+                  class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-space-between box"
                   :class="hover ? 'hover-box' : ''"
                 >
                   <div
@@ -73,7 +73,7 @@
                 v-slot="{ hover }"
               >
                 <div
-                  class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-center box"
+                  class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-space-between box"
                   :class="hover ? 'hover-box' : ''"
                   @click="teste_link()"
                 >
@@ -89,9 +89,9 @@
                       mdi-text-box-check-outline
                     </v-icon>
                   </div>
-
+                  <v-divider></v-divider>
                   <span
-                    class="text-circle"
+                    class="text-circle pb-3"
                     :class="hover ? 'text-circle-hover' : ''"
                   >
                     Planos
@@ -105,7 +105,7 @@
                 v-slot="{ hover }"
               >
                 <div
-                  class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-center box"
+                  class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-space-between box"
                   :class="hover ? 'hover-box' : ''"
                   @click="teste_link()"
                 >
@@ -123,7 +123,7 @@
                   </div>
 
                   <span
-                    class="text-circle text-center"
+                    class="text-circle pb-3"
                     :class="hover ? 'text-circle-hover' : ''"
                   >
                     Contato
@@ -210,54 +210,58 @@
         />
 
         <div>
-          <div class="social-medias d-flex align-center">
-            
-            <v-hover
-              v-slot="{ hover }"
-            >
 
-              <v-btn
-                href="https://www.facebook.com/mastertelecom/"
-                target="_blank"
-                color="transparent"
-                elevation="0"
-                width="40"
-              >
-                <v-img
-                  width="45"
-                  height="45"
-                  src="img/icons2/facebook.png"
-                  class="icone-sm"
-                  :class="hover ? 'icone-sm-hover' : ''"
-                >
-                </v-img>
-              </v-btn>
-            </v-hover>
-
-            <v-hover
-              v-slot="{ hover }"
-            >
-
-              <v-btn
-                href="https://www.instagram.com/master.telecom/"
-                target="_blank"
-                color="transparent"
-                elevation="0"
-                width="40"
-              >
-                <v-img
-                  width="35"
-                  height="35"
-                  src="img/icons2/instagram.png"
-                  class="icone-sm"
-                  :class="hover? 'icone-sm-hover' : ''"
-                >
-                </v-img>
-              </v-btn>
-            </v-hover>
+          <div class="bottom-frase">
+            <span>Nosso plano é você sempre <b>CONECTADO!</b></span>
           </div>
-
           <div class="button-whatsapp d-flex">
+
+            <div class="social-medias d-flex align-center">
+            
+              <v-hover
+                v-slot="{ hover }"
+              >
+
+                <v-btn
+                  href="https://www.facebook.com/mastertelecom/"
+                  target="_blank"
+                  color="transparent"
+                  elevation="0"
+                  width="40"
+                >
+                  <v-img
+                    width="45"
+                    height="45"
+                    src="img/icons2/facebook.png"
+                    class="icone-sm"
+                    :class="hover ? 'icone-sm-hover' : ''"
+                  >
+                  </v-img>
+                </v-btn>
+              </v-hover>
+
+              <v-hover
+                v-slot="{ hover }"
+              >
+
+                <v-btn
+                  href="https://www.instagram.com/master.telecom/"
+                  target="_blank"
+                  color="transparent"
+                  elevation="0"
+                  width="40"
+                >
+                  <v-img
+                    width="35"
+                    height="35"
+                    src="img/icons2/instagram.png"
+                    class="icone-sm"
+                    :class="hover? 'icone-sm-hover' : ''"
+                  >
+                  </v-img>
+                </v-btn>
+              </v-hover>
+            </div>
 
             <v-btn
               href="https://api.whatsapp.com/send?phone=5567992345355&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos."
@@ -325,7 +329,7 @@
       overlay_home(){
         setTimeout(()=>{
           this.overlay = false;
-        }, 5800)
+        }, 2300)
       },
 
       teste_link(){
@@ -420,7 +424,6 @@
     display: block;
     width: 110px;
     line-height: 24px;
-    margin-top: 10px;
     text-align: center;
     transition: 0.6s;
   }
@@ -440,7 +443,6 @@
     transform: scale(1);
     border-radius: 4px;
     cursor: pointer;
-    
     padding: 0.3rem;
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
@@ -513,7 +515,11 @@
     position: relative;
   }
 
-  .social-medias,
+  .social-medias{
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+
   .button-whatsapp{
     position: absolute;
     bottom: 15px;
@@ -522,8 +528,6 @@
   }
 
   .icone-sm{
-    margin-left: 3px;
-    margin-right: 3px;
     cursor: pointer;
   }
 
@@ -545,6 +549,29 @@
     padding: 15px;
     font-weight: 900;
     font-size: 1.3rem;
+  }
+
+  .bottom-frase{
+    color: var(--branco);
+    text-transform: uppercase;
+    font-weight: 400;
+    position: absolute;
+    bottom: 30px;
+    left: 130px;
+    width: 350px;
+    text-align: center;
+  }
+
+  .bottom-frase span{
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    line-height: 3px;
+  }
+
+  .bottom-frase span b{
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 6px;
   }
 
   @keyframes wpp{
