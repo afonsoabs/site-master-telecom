@@ -165,19 +165,35 @@
             </div>
 
             <v-card
-              min-width="430"
+              max-width="430"
               min-height="500"
-              elevation="0"
-              style="border: solid 1px red; z-index: 5; margin-bottom: 60px;"
+              elevation="5"
+              style="z-index: 5; margin-bottom: 80px;"
             >
+
+              <div class="contato-top">
+                <span>Fale conosco</span>
+                <p>Aqui estão as formas de contato que você pode utilizar para contatar a <b>Master Telecom!</b></p>
+              </div>
+
+              <div class="card-group-ctt">
+                <h4>Telefones:</h4>
+
+                <div class="card-ctt d-flex align-center mt-2 mb-1">
+                  <v-icon
+                    size="24"
+                    color="#000"
+                    class="mr-1"
+                  >
+                    mdi-phone
+                  </v-icon>
+
+                  <span class="font-weight-medium">(67) 99234-5355</span>
+                </div>
+              </div>
             </v-card>
           </div>
-
         </div>
-        <div class="right-center-box">
-          <h2 class="text-central">Central do assinante</h2>
-        </div>
-        
       </div>
 
       <div class="bottom-sm">
@@ -574,4 +590,39 @@
     }
   }
 
+  .contato-top{
+    font-weight: 700;
+    font-size: 1.7rem;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .contato-top p{
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding: 0;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 5px;
+    text-align: left;
+  }
+
+  .contato-top p b{
+    font-size: 1.2rem;
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  .card-group-ctt{
+    padding: 10px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5px;
+  }
+  
+  .card-ctt span{
+    font-size: 0.9rem;
+  }
 </style>
