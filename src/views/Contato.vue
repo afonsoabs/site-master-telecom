@@ -188,8 +188,46 @@
                     mdi-phone
                   </v-icon>
 
-                  <span class="font-weight-medium">(67) 99234-5355</span>
+                  <span class="font-weight-medium"><b>Fixo: </b>(67) 3451-1195</span>
                 </div>
+
+                
+                <div class="card-ctt d-flex align-center mt-2 mb-1">
+                  <v-icon
+                    size="24"
+                    color="#000"
+                    class="mr-1"
+                  >
+                    mdi-phone
+                  </v-icon>
+
+                  <span class="font-weight-medium"><b>Celular (vivo): </b>(67) 99607-3034</span>
+                </div>
+
+                
+                <div class="card-ctt d-flex align-center mt-2 mb-1">
+                  <v-icon
+                    size="24"
+                    color="#000"
+                    class="mr-1"
+                  >
+                    mdi-phone
+                  </v-icon>
+
+                  <span class="font-weight-medium"><b>SAC: </b>(67) 0800 674 1195</span>
+                </div>
+              </div>
+
+              <div class="contato-top">
+                <p>Ou também se preferir você pode solicitar uma visita de nossos técnicos sem precisar nos ligar. Basta clicar no botão da central do assiannte à esquerda ou no botão abaixo!</p>
+
+                <v-btn
+                  large
+                  class="mt-5 button-central-ass"
+                  color="var(--orange)"
+                >
+                  <span class="white--text">Central do Assinante</span>
+                </v-btn>
               </div>
             </v-card>
           </div>
@@ -265,8 +303,8 @@
               width="40"
             >
               <v-img
-                width="60"
-                height="60"
+                width="65"
+                height="65"
                 src="img/icons2/whatsApp.png"
                 class="icon-sm-wpp"
               >
@@ -624,5 +662,23 @@
   
   .card-ctt span{
     font-size: 0.9rem;
+  }
+
+  .button-central-ass{
+    animation: pulse 2.6s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%{
+      transform: scale(1);
+    }
+
+    50%{
+      transform: scale(1.03);
+    }
+
+    100%{
+      transform: scale(1);
+    }
   }
 </style>
