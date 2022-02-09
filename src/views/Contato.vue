@@ -105,13 +105,13 @@
                 v-slot="{ hover }"
               >
                 <div
-                  class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-space-between box"
+                  class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-space-between box destaque-box"
                   :class="hover ? 'hover-box' : ''"
                   @click="redirecionar('/contato')"
                 >
                   <div
                     class="circle d-flex align-center justify-center mb-2"
-                    :class="hover ? 'hover-circle' : ''"
+                    :class="hover ? 'destaque-hover-circle' : ''"
                   >
                     <v-icon
                       size="40"
@@ -123,7 +123,7 @@
                   </div>
 
                   <span
-                    class="text-circle pb-3"
+                    class="text-circle pb-3 destaque-text-circle"
                     :class="hover ? 'text-circle-hover' : ''"
                   >
                     Contato
@@ -142,12 +142,12 @@
                   @click="redirecionar_link('http://sgp.master.net.br:8000/accounts/central/login')"
                 >
                   <div
-                    class="circle-orange d-flex align-center justify-center mb-2"
+                    class="circle d-flex align-center justify-center mb-2"
                     :class="hover ? 'hover-circle' : ''"
                   >
                     <v-icon
                       size="40"
-                      class="icon-orange"
+                      class="icon"
                       :class="hover ? 'hover-icon' : ''"
                     >
                       mdi-face-agent
@@ -165,33 +165,11 @@
             </div>
 
             <v-card
-              min-width="420"
-              min-height="420"
-              class="carrousel"
+              min-width="430"
+              min-height="500"
               elevation="0"
+              style="border: solid 1px red; z-index: 5; margin-bottom: 60px;"
             >
-              <v-carousel
-                cycle
-                height="420"
-                max-height="420"
-                show-arrows-on-hover
-                hide-delimiter-background
-                hide-delimiters
-                interval="2100"
-              >
-                <v-carousel-item
-                  v-for="(fotos, i) in carrousel"
-                  :key="i"
-                >
-                  <v-img
-                    class="fill-height"
-                    :src="carrousel[i]"
-                    max-height="420"
-                    max-width="420"
-                  >
-                  </v-img>
-                </v-carousel-item>
-              </v-carousel>
             </v-card>
           </div>
 
