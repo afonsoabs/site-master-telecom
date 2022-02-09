@@ -142,12 +142,12 @@
                   @click="redirecionar_link('http://sgp.master.net.br:8000/accounts/central/login')"
                 >
                   <div
-                    class="circle d-flex align-center justify-center mb-2"
+                    class="circle-orange d-flex align-center justify-center mb-2"
                     :class="hover ? 'hover-circle' : ''"
                   >
                     <v-icon
                       size="40"
-                      class="icon"
+                      class="icon-orange"
                       :class="hover ? 'hover-icon' : ''"
                     >
                       mdi-face-agent
@@ -296,7 +296,7 @@
             </div>
 
             <v-btn
-              href="https://api.whatsapp.com/send?phone=5567992345355&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos."
+              href="https://api.whatsapp.com/send?phone=5508006471195&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos."
               target="_blank"
               color="transparent"
               elevation="0"

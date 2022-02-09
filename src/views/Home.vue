@@ -264,7 +264,7 @@
             </div>
 
             <v-btn
-              href="https://api.whatsapp.com/send?phone=5567992345355&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos."
+              href="https://api.whatsapp.com/send?phone=5508006471195&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos."
               target="_blank"
               color="transparent"
               elevation="0"
