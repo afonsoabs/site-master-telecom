@@ -167,68 +167,153 @@
             <v-card
               max-width="430"
               min-height="500"
+              min-width="430"
+              max-height="500"
               elevation="5"
-              style="z-index: 5; margin-bottom: 80px;"
+              class="main-contato"
+              :class="change_contato == true ? 'rotate-y-contato' : ''"
             >
 
-              <div class="contato-top">
-                <span>Fale conosco</span>
-                <p>Aqui estão as formas de contato que você pode utilizar para contatar a <b>Master Telecom!</b></p>
-              </div>
-
-              <div class="card-group-ctt">
-                <h4>Telefones:</h4>
-
-                <div class="card-ctt d-flex align-center mt-2 mb-1">
-                  <v-icon
-                    size="24"
-                    color="#000"
-                    class="mr-1"
-                  >
-                    mdi-phone
-                  </v-icon>
-
-                  <span class="font-weight-medium"><b>Fixo: </b>(67) 3451-1195</span>
+              <div class="front-contato">
+                <div class="contato-top">
+                  <span>Fale conosco</span>
+                  <p>Aqui estão as formas de contato que você pode utilizar para contatar a <b>Master Telecom!</b></p>
                 </div>
 
-                
-                <div class="card-ctt d-flex align-center mt-2 mb-1">
-                  <v-icon
-                    size="24"
-                    color="#000"
-                    class="mr-1"
-                  >
-                    mdi-phone
-                  </v-icon>
+                <div class="card-group-ctt">
+                  <h4>Telefones:</h4>
 
-                  <span class="font-weight-medium"><b>Celular (vivo): </b>(67) 99607-3034</span>
+                  <div class="card-ctt d-flex align-center mt-2 mb-1">
+                    <v-icon
+                      size="24"
+                      color="#000"
+                      class="mr-1"
+                    >
+                      mdi-phone
+                    </v-icon>
+
+                    <span class="font-weight-medium"><b>Fixo: </b>(67) 3451-1195</span>
+                  </div>
+
+                  
+                  <div class="card-ctt d-flex align-center mt-2 mb-1">
+                    <v-icon
+                      size="24"
+                      color="#000"
+                      class="mr-1"
+                    >
+                      mdi-phone
+                    </v-icon>
+
+                    <span class="font-weight-medium"><b>Celular (vivo): </b>(67) 99607-3034</span>
+                  </div>
+
+                  
+                  <div class="card-ctt d-flex align-center mt-2 mb-1">
+                    <v-icon
+                      size="24"
+                      color="#000"
+                      class="mr-1"
+                    >
+                      mdi-phone
+                    </v-icon>
+
+                    <span class="font-weight-medium"><b>SAC: </b>(67) 0800 674 1195</span>
+                  </div>
+
+                  <v-btn
+                    small
+                    class="mt-2"
+                    color="var(--orange)"
+                    @click="troca_contato()"
+                  >
+                    <span class="white--text">Ver consultores</span>
+                  </v-btn>
                 </div>
 
-                
-                <div class="card-ctt d-flex align-center mt-2 mb-1">
-                  <v-icon
-                    size="24"
-                    color="#000"
-                    class="mr-1"
-                  >
-                    mdi-phone
-                  </v-icon>
+                <div class="contato-top">
+                  <p>Ou também se preferir você pode solicitar uma visita de nossos técnicos sem precisar nos ligar. Basta clicar no botão da central do assiannte à esquerda ou no botão abaixo!</p>
 
-                  <span class="font-weight-medium"><b>SAC: </b>(67) 0800 674 1195</span>
+                  <v-btn
+                    large
+                    class="mt-1 button-central-ass"
+                    color="var(--orange)"
+                  >
+                    <span class="white--text">Central do Assinante</span>
+                  </v-btn>
                 </div>
               </div>
 
-              <div class="contato-top">
-                <p>Ou também se preferir você pode solicitar uma visita de nossos técnicos sem precisar nos ligar. Basta clicar no botão da central do assiannte à esquerda ou no botão abaixo!</p>
+              <div class="back-contato">
+                <div class="contato-top">
+                  <span>Fale com um consultor</span>
+                  <p>Aqui estão os telefones de todos os nossos consultores de vendas, todos ativos das <b>07:30h</b> da manhã até <b>18:00h</b> da noite!</p>
+                </div>
 
-                <v-btn
-                  large
-                  class="mt-5 button-central-ass"
-                  color="var(--orange)"
-                >
-                  <span class="white--text">Central do Assinante</span>
-                </v-btn>
+                <div class="card-group-ctt">
+                  <h4>Telefones:</h4>
+
+                  <div class="card-ctt d-flex align-center mt-2 mb-1">
+                    <v-icon
+                      size="24"
+                      color="#000"
+                      class="mr-1"
+                    >
+                      mdi-phone
+                    </v-icon>
+
+                    <span class="font-weight-medium"><b>Fixo: </b>(67) 3451-1195</span>
+                  </div>
+
+                  
+                  <div class="card-ctt d-flex align-center mt-2 mb-1">
+                    <v-icon
+                      size="24"
+                      color="#000"
+                      class="mr-1"
+                    >
+                      mdi-phone
+                    </v-icon>
+
+                    <span class="font-weight-medium"><b>Celular (vivo): </b>(67) 99607-3034</span>
+                  </div>
+
+                  
+                  <div class="card-ctt d-flex align-center mt-2 mb-1">
+                    <v-icon
+                      size="24"
+                      color="#000"
+                      class="mr-1"
+                    >
+                      mdi-phone
+                    </v-icon>
+
+                    <span class="font-weight-medium"><b>SAC: </b>(67) 0800 674 1195</span>
+                  </div>
+
+                  <v-btn
+                    small
+                    class="mt-2"
+                    color="var(--orange)"
+                    @click="troca_contato()"
+                  >
+                    <span class="white--text">Contatos do escritório</span>
+                  </v-btn>
+                </div>
+
+                <div class="contato-top">
+                  <p>Ou também se preferir você pode solicitar uma visita de nossos técnicos sem precisar nos ligar. Clique no botão abaixo:</p>
+
+                  <v-btn
+                    large
+                    class="mt-5 button-central-ass"
+                    color="var(--orange)"
+                  >
+                    <span class="white--text">Central do Assinante</span>
+                  </v-btn>
+                </div>
               </div>
+
             </v-card>
           </div>
         </div>
@@ -349,6 +434,7 @@
     data: ()=>{
       return{
         overlay: false,
+        change_contato: false,
         carrousel: [
           'img/teste-1.jpg',
           'img/teste-2.jpg'
@@ -378,6 +464,10 @@
       redirecionar(route) {
         this.$router.push({ path: route });
       },
+
+      troca_contato(){
+        this.change_contato = !this.change_contato;
+      }
     },
 
     mounted(){
@@ -628,6 +718,34 @@
     }
   }
 
+
+  .main-contato{
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    z-index: 5;
+    margin-bottom: 80px;
+    position: relative;
+    border: solid 1px green;
+  }
+  .rotate-y-contato{
+    transform: rotateY(180deg);
+  }
+
+  .front-contato{
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .back-contato{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+  }
+
   .contato-top{
     font-weight: 700;
     font-size: 1.7rem;
@@ -642,7 +760,6 @@
     display: block;
     width: 90%;
     margin: 0 auto;
-    margin-top: 10px;
     padding: 5px;
     text-align: left;
   }
