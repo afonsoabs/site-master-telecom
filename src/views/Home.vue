@@ -75,7 +75,7 @@
                 <div
                   class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-space-between box"
                   :class="hover ? 'hover-box' : ''"
-                  @click="teste_link()"
+                  @click="redirecionar('/planos')"
                 >
                   <div
                     class="circle-orange d-flex align-center justify-center"

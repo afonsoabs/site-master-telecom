@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Contato from '../views/Contato.vue'
+import Planos from '../views/Planos.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,12 @@ const routes = [
     path: '/contato',
     name: 'Contato',
     component: Contato
+  },
+
+  {
+    path: '/planos',
+    name: 'Planos',
+    component: Planos
   }
 ]
 
