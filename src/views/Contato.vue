@@ -725,7 +725,6 @@
     z-index: 5;
     margin-bottom: 80px;
     position: relative;
-    border: solid 1px green;
   }
   .rotate-y-contato{
     transform: rotateY(180deg);
