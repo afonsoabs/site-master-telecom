@@ -262,7 +262,7 @@
                       mdi-phone
                     </v-icon>
 
-                    <span class="font-weight-medium"><b>Fixo: </b>(67) 3451-1195</span>
+                    <span class="font-weight-medium"><b>Gledson: </b>(67) 99170-8000</span>
                   </div>
 
                   
@@ -275,7 +275,7 @@
                       mdi-phone
                     </v-icon>
 
-                    <span class="font-weight-medium"><b>Celular (vivo): </b>(67) 99607-3034</span>
+                    <span class="font-weight-medium"><b>Isadora: </b>(67) 99644-4530</span>
                   </div>
 
                   
@@ -288,12 +288,23 @@
                       mdi-phone
                     </v-icon>
 
-                    <span class="font-weight-medium"><b>SAC: </b>(67) 0800 674 1195</span>
+                    <span class="font-weight-medium"><b>André: </b>(67) 99287-3001</span>
+                  </div>
+
+                  <div class="card-ctt d-flex align-center mt-2 mb-1">
+                    <v-icon
+                      size="24"
+                      color="#000"
+                      class="mr-1"
+                    >
+                      mdi-phone
+                    </v-icon>
+
+                    <span class="font-weight-medium"><b>Éric: </b>(67) 99215-3303</span>
                   </div>
 
                   <v-btn
                     small
-                    class="mt-2"
                     color="var(--orange)"
                     @click="troca_contato()"
                   >
@@ -306,7 +317,7 @@
 
                   <v-btn
                     large
-                    class="mt-5 button-central-ass"
+                    class="button-central-ass"
                     color="var(--orange)"
                   >
                     <span class="white--text">Central do Assinante</span>
@@ -771,6 +782,8 @@
 
   .card-group-ctt{
     padding: 10px;
+    padding-top: 0;
+    padding-bottom: 15px;
     width: 90%;
     margin: 0 auto;
     margin-top: 5px;
