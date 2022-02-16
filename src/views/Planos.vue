@@ -20,81 +20,17 @@
 							Selecione a cidade/distrito
 						</v-chip>
 
-						<div class="d-flex flex-column align-center">
-							<v-btn
-								small
-								color="transparent"
-								class="ma-2 pa-1 select-city"
-								min-width="160"
-								@click="selecionar_planos()"
-							>
-								Dourados
-							</v-btn>
-
-							<v-btn
-								small
-								color="transparent"
-								class="ma-2 pa-1 select-city"
-								min-width="160"
-							>
-								Itaporã
-							</v-btn>
-							
-							<v-btn
-								small
-								color="transparent"
-								class="ma-2 pa-1 select-city"
-								min-width="160"
-							>
-								Montese
-							</v-btn>
-							
-							<v-btn
-								small
-								color="transparent"
-								class="ma-2 pa-1 pa select-city"
-								min-width="160"
-							>
-								Guairicus
-							</v-btn>
-
-							<v-btn
-								small
-								color="transparent"
-								class="ma-2 pa-1 select-city"
-								min-width="160"
-							>
-								Dourados
-							</v-btn>
-
-							<v-btn
-								small
-								color="transparent"
-								class="ma-2 pa-1 select-city"
-								min-width="160"
-							>
-								Itaporã
-							</v-btn>
-							
-							<v-btn
-								small
-								color="transparent"
-								class="ma-2 pa-1 select-city"
-								min-width="160"
-							>
-								Montese
-							</v-btn>
-							
-							<v-btn
-								small
-								color="transparent"
-								class="ma-2 pa-1 pa select-city"
-								min-width="160"
-							>
-								Guairicus
-							</v-btn>
-
-						</div>
+						<v-autocomplete
+							auto-select-first
+							chips
+							clearable
+							deletable-chips
+							small-chips
+							:items="data_dist_cid"
+							v-model="dist_cid_select"
+							outlined
+							color="white"
+						></v-autocomplete>
 
 					</div>
 
@@ -102,7 +38,6 @@
 
 					<div class="lista-planos d-flex flex-column align-center">
 
-						
 						<v-chip
 							color="var(--orange)"
 							label
@@ -114,22 +49,119 @@
 						<carousel-3d
 							height="450"
 							width="320"
-							perspective="10"
+							perspective="40"
+							
 						>
 							<slide
 								v-for="(slide, i) in slides"
 								:index="i"
 								:key="i"
-								class="mt-0"
-								style="border: none;"
+								class="mt-0 slide-plan"
 							>
 
 								<v-card
-									:color="slide.color"
 									elevation="0"
-									class="card-plano"
+									class="card-plano pl-6 pr-6 pt-4 pb-4"
 								>
-									teste
+								
+									<div>
+										<span
+											class="d-flex flex-column text-uppercase font-weight-medium mb-4 text-top-plan"
+										>
+											Internet
+											<strong
+												class="font-weight-bold"
+											>
+												{{slide.mb}} MEGA
+											</strong>
+										</span>
+
+										<v-divider style="border-color: var(--blue);"></v-divider>
+									</div>
+
+									<div class="vantagens-plan">
+										<div class="content-vantagens mt-8 mb-5">
+											<div class="pt-1 pb-3 mt-1 d-flex align-center">
+												<v-icon
+													size="20"
+													color="rgba(255,255,255,0.7)"
+													class="mr-2"
+
+												>
+													mdi-wifi
+
+												</v-icon>
+
+												<span class="text-plan">Desempenho de alto nível</span>
+											</div>
+
+											<div class="pt-1 pb-3 mt-1 d-flex align-center">
+												<v-icon
+													size="20"
+													color="rgba(255,255,255,0.7)"
+													class="mr-2"
+
+												>
+													mdi-wan
+
+												</v-icon>
+
+												<span class="text-plan">100% Fibra Óptica</span>
+											</div>
+
+											<div class="pt-1 pb-3 mt-1 d-flex align-center">
+												<v-icon
+													size="20"
+													color="rgba(255,255,255,0.7)"
+													class="mr-2"
+
+												>
+													mdi-tablet-cellphone
+
+												</v-icon>
+
+												<span class="text-plan">Mais estabilidade</span>
+											</div>
+
+											<div class="pt-1 pb-3 mt-1 d-flex align-center">
+												<v-icon
+													size="20"
+													color="rgba(255,255,255,0.7)"
+													class="mr-2"
+
+												>
+													mdi-cloud-upload
+
+												</v-icon>
+
+												<span class="text-plan">Alta taxa de upload</span>
+											</div>
+
+											<div class="pt-1 pb-3 mt-1 d-flex align-center">
+												<v-icon
+													size="20"
+													color="rgba(255,255,255,0.7)"
+													class="mr-2"
+
+												>
+													mdi-cloud-download
+
+												</v-icon>
+
+												<span class="text-plan">Alta taxa de download</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="button-plan pa-3 d-flex justify-center">
+										<v-btn
+											x-large
+											class="bg-btn pa-3"
+											height="40"
+											color="rgba(255,255,255,0.9)"
+											outlined
+										>Solicitar contato</v-btn>
+									</div>
 									
 								</v-card>
 							</slide>
@@ -150,19 +182,30 @@ export default {
 		return{
 			slides: [
 				{
-					color: 'red',
+					mb: 500,
 					src: 'https://blog.emania.com.br/wp-content/uploads/2016/02/direitos-autorais-e-de-imagem.jpg',
 				},
 
+				
 				{
-					color: 'blue',
+					mb: 300,
 					src: 'https://blog.emania.com.br/wp-content/uploads/2016/02/direitos-autorais-e-de-imagem.jpg',
 				},
 
+				
 				{
-					color: 'green',
+					mb: 200,
 					src: 'https://blog.emania.com.br/wp-content/uploads/2016/02/direitos-autorais-e-de-imagem.jpg',
 				},
+			],
+
+			data_dist_cid: [
+				"Itaporã",
+				"Dourados",
+				"Montese",
+				"Santa Terezinha",
+				"Piraporã",
+				"Carumbé",
 			]
 		}
 	},
@@ -207,10 +250,36 @@ export default {
 		color: var(--branco);
 	}
 
+	.slide-plan{
+		border: none;
+		box-shadow: 1px 3px 3px #000;
+	}
+
 	.card-plano{
 		height: 100%;
 		width: 100%;
 		border-radius: 0px;
+		background-image: linear-gradient(to right top, #ed6300, #ee680b, #ee6d15, #ef721d, #ef7724, #ef7724, #ef7724, #ef7724, #ef721d, #ee6d15, #ee680b, #ed6300);
+	}
+
+	.text-top-plan{
+		font-size: 1.2rem;
+		line-height: 35px;
+	}
+
+	.text-top-plan strong{
+		color: #ed6300;
+		font-size: 3.2rem;
+		text-shadow: 1px 0 0 rgba(255,255,255,0.6), -1px 0 0 rgba(255,255,255,0.6), 0 1px 0 rgba(255,255,255,0.6), 0 -1px 0 rgba(255,255,255,0.6), 1px 1px rgba(255,255,255,0.6), -1px -1px 0 rgba(255,255,255,0.6), 1px -1px 0 rgba(255,255,255,0.6), -1px 1px 0 rgba(255,255,255,0.6);
+	}
+
+	.text-plan{
+		color: var(--branco);
+		font-size: 0.9rem;
+	}
+
+	.bg-btn{
+		font-weight: 500;
 	}
 
 </style>
