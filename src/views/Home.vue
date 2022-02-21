@@ -337,7 +337,7 @@
     name: 'Home',
     data: ()=>{
       return{
-        overlay: true,
+        overlay: false,
         localidade: null,
 
         carrousel: [
@@ -381,7 +381,7 @@
     },
 
     mounted(){
-      this.overlay = true;
+      this.overlay = false;
     }
   }
 </script>
