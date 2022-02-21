@@ -17,21 +17,20 @@
 							color="var(--orange)"
 							text-color="var(--branco)"
 						>
-							Selecione a cidade/distrito
+							Sobre a localidade e a forma de contato
 						</v-chip>
 
-						<v-autocomplete
-							auto-select-first
-							chips
-							clearable
-							deletable-chips
-							small-chips
-							:items="data_dist_cid"
-							v-model="dist_cid_select"
+						<p class="mb-5 mt-3 text-justify" style="color: rgba(255,255,255,0.8);">	Os planos listados ao lado são para a região de <b class="laranja">Montese</b> conforme foi selecionado na pagina inicial. Ao clicar no botão de <b>solicitar contato</b>, você será redirecionado para o whatsApp de um de nossos consultores.</p>
+						
+						<v-btn
+							dense
+							large
 							outlined
 							color="white"
-						></v-autocomplete>
-
+							class="mt-3"
+						>
+							Retornar ao menu anterior
+						</v-btn>
 					</div>
 
 					<v-divider vertical dark></v-divider>
@@ -84,7 +83,7 @@
 											<div class="pt-1 pb-3 mt-1 d-flex align-center">
 												<v-icon
 													size="20"
-													color="rgba(255,255,255,0.7)"
+													color="#000"
 													class="mr-2"
 
 												>
@@ -98,7 +97,7 @@
 											<div class="pt-1 pb-3 mt-1 d-flex align-center">
 												<v-icon
 													size="20"
-													color="rgba(255,255,255,0.7)"
+													color="#000"
 													class="mr-2"
 
 												>
@@ -112,7 +111,7 @@
 											<div class="pt-1 pb-3 mt-1 d-flex align-center">
 												<v-icon
 													size="20"
-													color="rgba(255,255,255,0.7)"
+													color="#000"
 													class="mr-2"
 
 												>
@@ -126,7 +125,7 @@
 											<div class="pt-1 pb-3 mt-1 d-flex align-center">
 												<v-icon
 													size="20"
-													color="rgba(255,255,255,0.7)"
+													color="#000"
 													class="mr-2"
 
 												>
@@ -140,7 +139,7 @@
 											<div class="pt-1 pb-3 mt-1 d-flex align-center">
 												<v-icon
 													size="20"
-													color="rgba(255,255,255,0.7)"
+													color="#000"
 													class="mr-2"
 
 												>
@@ -158,8 +157,7 @@
 											x-large
 											class="bg-btn pa-3"
 											height="40"
-											color="rgba(255,255,255,0.9)"
-											outlined
+											color="var(--orange)"
 										>Solicitar contato</v-btn>
 									</div>
 									
@@ -222,7 +220,9 @@ export default {
 	.container-main{
 		height: 100vh;
 		width: 100%;
-		background-image: linear-gradient(to right top, #0a0f1d, #0c162b, #0c1b3a, #0d204a, #112459);
+		/* background-image: linear-gradient(to right top, #0a0f1d, #0c162b, #0c1b3a, #0d204a, #112459); */
+		background: url('../assets/fundo-planos.png') no-repeat center center;
+		background-size: cover;
 	}
 
 	.teste{
@@ -259,7 +259,8 @@ export default {
 		height: 100%;
 		width: 100%;
 		border-radius: 0px;
-		background-image: linear-gradient(to right top, #ed6300, #ee680b, #ee6d15, #ef721d, #ef7724, #ef7724, #ef7724, #ef7724, #ef721d, #ee6d15, #ee680b, #ed6300);
+		/* background-image: linear-gradient(to right top, #ed6300, #ee680b, #ee6d15, #ef721d, #ef7724, #ef7724, #ef7724, #ef7724, #ef721d, #ee6d15, #ee680b, #ed6300); */
+		background: white;
 	}
 
 	.text-top-plan{
@@ -274,12 +275,19 @@ export default {
 	}
 
 	.text-plan{
-		color: var(--branco);
+		color: #000;
 		font-size: 0.9rem;
 	}
 
 	.bg-btn{
 		font-weight: 500;
+		width: 100%;
+		color: white;
 	}
 
+	.laranja{
+		color: var(--orange);
+		font-weight: 700;
+		font-size: 1.4rem;
+	}
 </style>

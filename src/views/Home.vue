@@ -284,25 +284,46 @@
     </div>
 
     <v-overlay
-      opacity="1"
+      opacity="0.6"
       :value="overlay"
       color="var(--blue)"
     >
 
-      <div class="d-flex flex-column align-center justify-center">
-        <v-img
-          max-width="300"
-          src="img/logo.png"
-          class="pulse-logo mb-10"
-          transition="scale-transition"
-          contain
+      <div class="d-flex flex-column align-center justify-center"> 
+        <v-card
+          width="400"
+          height="300"
+          color="var(--orange)"
+          class="pa-4"
         >
 
+          <div class="text-select-over d-flex flex-column justify-space-around" style="height: 100%;">
+            <div>
+              <span><b>Bem vindo!</b> <br /> Qual a sua localidade?</span>
+            </div>
 
-        </v-img>
-        <v-progress-circular indeterminate size="30" color="var(--orange)">
-        </v-progress-circular>
-        <span class="caption">Carregando...</span>
+            <div>
+              <v-autocomplete
+                v-model="localidade"
+                chips
+                clearable
+                small-chips
+                dense
+                filled
+                :items="database_localidade"
+                label="Selecione sua localidade"
+                color="var(--blue)"
+              ></v-autocomplete>
+
+              <v-btn
+                small
+                color="white"
+                outlined
+                class="pa-4"
+              >Acessar agora</v-btn>
+            </div>
+          </div>
+        </v-card>
       </div>
 
     </v-overlay>
@@ -316,11 +337,22 @@
     name: 'Home',
     data: ()=>{
       return{
-        overlay: false,
+        overlay: true,
+        localidade: null,
+
         carrousel: [
           'img/teste-1.jpg',
           'img/teste-2.jpg'
-        ]
+        ],
+
+        database_localidade: [
+				"Itaporã",
+				"Dourados",
+				"Montese",
+				"Santa Terezinha",
+				"Piraporã",
+				"Carumbé",
+			]
       }
     },
 
@@ -349,7 +381,7 @@
     },
 
     mounted(){
-      this.overlay_home();
+      this.overlay = true;
     }
   }
 </script>
@@ -576,6 +608,20 @@
     font-weight: 900;
     font-size: 1.2rem;
     letter-spacing: 6px;
+  }
+
+  .top-over-sl{
+    background: var(--blue);
+  }
+
+  .text-select-over b{
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .text-select-over{
+    font-size: 1.2rem;
+    line-height: 25px;
   }
 
   @keyframes wpp{
