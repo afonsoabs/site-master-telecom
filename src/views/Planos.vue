@@ -1,5 +1,5 @@
 <template>
-	<div class="container-main">
+	<div class="container-main" :class="bg == 1 ? 'bg-1' : bg ==2 ? 'bg-2' : 'bg-3'">
 		<v-card
 			class="div-box"
 			elevation="0"
@@ -28,6 +28,7 @@
 							outlined
 							color="white"
 							class="mt-3"
+							@click="redirecionar('/home')"
 						>
 							Retornar ao menu anterior
 						</v-btn>
@@ -46,7 +47,7 @@
 							Conheça nossos planos
 						</v-chip>
 						<carousel-3d
-							height="450"
+							height="470"
 							width="320"
 							perspective="40"
 							
@@ -79,7 +80,7 @@
 									</div>
 
 									<div class="vantagens-plan">
-										<div class="content-vantagens mt-8 mb-5">
+										<div class="content-vantagens mt-8 mb-2">
 											<div class="pt-1 pb-3 mt-1 d-flex align-center">
 												<v-icon
 													size="20"
@@ -91,7 +92,9 @@
 
 												</v-icon>
 
-												<span class="text-plan">Desempenho de alto nível</span>
+												<span class="text-plan" v-if="slide.mb != 500">Desempenho de alto nível</span>
+												<span class="text-plan" v-else>Wi-fi de alta performance</span>
+
 											</div>
 
 											<div class="pt-1 pb-3 mt-1 d-flex align-center">
@@ -149,16 +152,37 @@
 
 												<span class="text-plan">Alta taxa de download</span>
 											</div>
+
+											<div class="pt-1 mt-1 d-flex align-center" v-if="slide.mb == 500">
+												<v-icon
+													size="20"
+													color="#000"
+													class="mr-2"
+
+												>
+													mdi-wifi-plus
+
+												</v-icon>
+
+												<span class="text-plan">+ 1 Ponto adicional <b>WIFI PREMIUM</b></span>
+											</div>
 										</div>
 									</div>
 
-									<div class="button-plan pa-3 d-flex justify-center">
+									<div class="button-plan pa-3 d-flex flex-column justify-center">
 										<v-btn
 											x-large
 											class="bg-btn pa-3"
 											height="40"
 											color="var(--orange)"
-										>Solicitar contato</v-btn>
+										>Entrar em contato</v-btn>
+
+										<span
+											@click="redirecionar('/contatos')"
+											class="text-center font-weight-medium caption mt-2 pb-2"
+										>
+											Quero que o vendedor me ligue
+										</span>
 									</div>
 									
 								</v-card>
@@ -178,6 +202,9 @@ export default {
 	name: 'Planos',
 	data: ()=>{
 		return{
+
+			bg: 1,
+
 			slides: [
 				{
 					mb: 500,
@@ -197,6 +224,8 @@ export default {
 				},
 			],
 
+
+
 			data_dist_cid: [
 				"Itaporã",
 				"Dourados",
@@ -210,7 +239,26 @@ export default {
 
 
 	methods: {
+		change_backgorund(){
+			console.log('iniciando...');
+			setInterval(() => {
+				console.log(this.bg);
+				this.bg = this.bg + 1;
+				if(this.bg > 3){
+					this.bg = 1;
+				}
 
+				console.log(this.bg);
+			}, 3000);
+		},
+
+		redirecionar(route) {
+			this.$router.push({ path: route });
+		},
+	},
+
+	mounted(){
+		this.change_backgorund();
 	}
 }
 </script>
@@ -220,8 +268,23 @@ export default {
 	.container-main{
 		height: 100vh;
 		width: 100%;
-		/* background-image: linear-gradient(to right top, #0a0f1d, #0c162b, #0c1b3a, #0d204a, #112459); */
+	}
+
+	.bg-1{
+		
 		background: url('../assets/fundo-planos.png') no-repeat center center;
+		background-size: cover;;
+	}
+
+	.bg-2{
+		
+		background: url('../assets/fundo-planos2.png') no-repeat center center;
+		background-size: cover;
+	}
+
+	.bg-3{
+
+		background: url('../assets/fundo-planos3.png') no-repeat center center;
 		background-size: cover;
 	}
 
@@ -290,4 +353,5 @@ export default {
 		font-weight: 700;
 		font-size: 1.4rem;
 	}
+	
 </style>
