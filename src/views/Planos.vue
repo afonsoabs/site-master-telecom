@@ -28,7 +28,7 @@
 							outlined
 							color="white"
 							class="mt-3"
-							@click="redirecionar('/home')"
+							@click="redirecionar('/')"
 						>
 							Retornar ao menu anterior
 						</v-btn>
@@ -175,13 +175,13 @@
 											class="bg-btn pa-3"
 											height="40"
 											color="var(--orange)"
+											@click="redirecionar('/contatos')"
 										>Entrar em contato</v-btn>
 
 										<span
-											@click="redirecionar('/contatos')"
 											class="text-center font-weight-medium caption mt-2 pb-2"
 										>
-											Quero que o vendedor me ligue
+											 
 										</span>
 									</div>
 									

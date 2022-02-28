@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Contato from '../views/Contato.vue'
 import Planos from '../views/Planos.vue'
+import Sobre from '../views/Sobre.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,12 @@ const routes = [
     path: '/planos',
     name: 'Planos',
     component: Planos
+  },
+
+  {
+    path: '/sobre',
+    name: 'Sobre',
+    component: Sobre
   },
 ]
 

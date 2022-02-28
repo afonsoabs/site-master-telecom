@@ -41,13 +41,13 @@
                 v-slot="{ hover }"
               >
                 <div
-                  class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-space-between box"
+                  class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-space-between box destaque-box"
                   :class="hover ? 'hover-box' : ''"
                   @click="redirecionar('/sobre')"
                 >
                   <div
                     class="circle d-flex align-center justify-center"
-                    :class="hover ? 'hover-circle' : ''"
+                    :class="hover ? 'destaque-hover-circle' : ''"
                   >
                     <v-icon
                       size="40"
@@ -59,7 +59,7 @@
                   </div>
 
                   <span
-                    class="text-circle"
+                    class="text-circle destaque-text-circle"
                     :class="hover ? 'text-circle-hover' : ''"
                   >
                     Sobre a master
@@ -165,41 +165,34 @@
             </div>
 
             <v-card
-              min-width="420"
-              min-height="420"
-              class="carrousel"
-              elevation="0"
+              max-width="430"
+              min-height="500"
+              min-width="430"
+              max-height="500"
+              elevation="5"
+              class="main-contato"
+              :class="change_contato == true ? 'rotate-y-contato' : ''"
             >
-              <v-carousel
-                cycle
-                height="420"
-                max-height="420"
-                show-arrows-on-hover
-                hide-delimiter-background
-                hide-delimiters
-                interval="2100"
-              >
-                <v-carousel-item
-                  v-for="(fotos, i) in carrousel"
-                  :key="i"
+
+              <div class="pa-4">
+
+                <div>
+                  <h2 class="mb-2">A história</h2>
+                  <p class="text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis distinctio non corporis quisquam eos cum, iure ducimus magnam, deleniti consequatur eaque? Esse praesentium quibusdam error eum recusandae fugit et nobis! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione ex maxime rem harum voluptatum iste sapiente repellendus dolore? Laborum consectetur nam fugiat nostrum molestias doloremque dolor distinctio adipisci esse praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam reiciendis, quisquam velit repellendus aliquid odio vitae ad asperiores itaque distinctio tenetur reprehenderit blanditiis quas non expedita adipisci ullam, quam laborum.</p>
+                </div>
+
+                <v-btn
+                  outlined
+                  large
+                  color="var(--orange)"
                 >
-                  <v-img
-                    class="fill-height"
-                    :src="carrousel[i]"
-                    max-height="420"
-                    max-width="420"
-                  >
-                  </v-img>
-                </v-carousel-item>
-              </v-carousel>
+                  Acesse a comunidade
+                </v-btn>
+              </div>
+
             </v-card>
           </div>
-
         </div>
-        <div class="right-center-box">
-          <h2 class="text-central">Central do assinante</h2>
-        </div>
-        
       </div>
 
       <div class="bottom-sm">
@@ -271,8 +264,8 @@
               width="40"
             >
               <v-img
-                width="60"
-                height="60"
+                width="65"
+                height="65"
                 src="img/icons2/whatsApp.png"
                 class="icon-sm-wpp"
               >
@@ -282,51 +275,6 @@
         </div>
       </div>
     </div>
-
-    <v-overlay
-      opacity="0.6"
-      :value="overlay"
-      color="var(--blue)"
-    >
-
-      <div class="d-flex flex-column align-center justify-center"> 
-        <v-card
-          width="400"
-          height="300"
-          color="var(--orange)"
-          class="pa-4"
-        >
-
-          <div class="text-select-over d-flex flex-column justify-space-around" style="height: 100%;">
-            <div>
-              <span><b>Bem vindo!</b> <br /> Qual a sua localidade?</span>
-            </div>
-
-            <div>
-              <v-autocomplete
-                v-model="localidade"
-                chips
-                clearable
-                small-chips
-                dense
-                filled
-                :items="database_localidade"
-                label="Selecione sua localidade"
-                color="var(--blue)"
-              ></v-autocomplete>
-
-              <v-btn
-                small
-                color="white"
-                outlined
-                class="pa-4"
-              >Acessar agora</v-btn>
-            </div>
-          </div>
-        </v-card>
-      </div>
-
-    </v-overlay>
   </div>
 
 </template>
@@ -334,36 +282,15 @@
 <script>
 
   export default {
-    name: 'Home',
+    name: 'Sobre',
     data: ()=>{
       return{
-        overlay: false,
-        localidade: null,
-
-        carrousel: [
-          'img/teste-1.jpg',
-          'img/teste-2.jpg'
-        ],
-
-        database_localidade: [
-				"Itaporã",
-				"Dourados",
-				"Montese",
-				"Santa Terezinha",
-				"Piraporã",
-				"Carumbé",
-			]
+        // 
       }
     },
 
     methods: {
 
-      overlay_home(){
-        setTimeout(()=>{
-          this.overlay = false;
-        }, 2300)
-      },
-      
       redirecionar_link(link){
         this.overlay = !this.overlay;
         setInterval(()=>{
@@ -375,10 +302,6 @@
         this.$router.push({ path: route });
       },
     },
-
-    mounted(){
-      this.overlay = false;
-    }
   }
 </script>
 
@@ -606,20 +529,6 @@
     letter-spacing: 6px;
   }
 
-  .top-over-sl{
-    background: var(--blue);
-  }
-
-  .text-select-over b{
-    font-size: 2rem;
-    letter-spacing: 2px;
-  }
-
-  .text-select-over{
-    font-size: 1.2rem;
-    line-height: 25px;
-  }
-
   @keyframes wpp{
     
     0%{
@@ -638,4 +547,28 @@
     }
   }
 
+
+  .main-contato{
+    z-index: 5;
+    margin-bottom: 80px;
+  }
+
+  .front-contato{
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes pulse {
+    0%{
+      transform: scale(1);
+    }
+
+    50%{
+      transform: scale(1.03);
+    }
+
+    100%{
+      transform: scale(1);
+    }
+  }
 </style>

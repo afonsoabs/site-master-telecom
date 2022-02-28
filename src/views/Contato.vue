@@ -43,11 +43,11 @@
                 <div
                   class="pl-2 pr-2 pt-2 pb-2 d-flex flex-column align-center justify-space-between box"
                   :class="hover ? 'hover-box' : ''"
+                  @click="redirecionar('/sobre')"
                 >
                   <div
                     class="circle d-flex align-center justify-center"
                     :class="hover ? 'hover-circle' : ''"
-                    @click="teste_link()"
                   >
                     <v-icon
                       size="40"
@@ -459,10 +459,6 @@
         setTimeout(()=>{
           this.overlay = false;
         }, 2300)
-      },
-
-      teste_link(){
-        alert('botão em construção');
       },
 
       redirecionar_link(link){
