@@ -20,7 +20,7 @@
 							Sobre a localidade e a forma de contato
 						</v-chip>
 
-						<p class="mb-5 mt-3 text-justify" style="color: rgba(255,255,255,0.8);">	Os planos listados ao lado são para a região de <b class="laranja">Montese</b> conforme foi selecionado na pagina inicial. Ao clicar no botão de <b>solicitar contato</b>, você será redirecionado para o whatsApp de um de nossos consultores.</p>
+						<p class="mb-5 mt-3 text-justify" style="color: rgba(255,255,255,0.8);">	Os planos listados ao lado são para a região de <b class="laranja">{{localidade}}</b> conforme foi selecionado na pagina inicial. Ao clicar no botão de <b>solicitar contato</b>, você será redirecionado para o whatsApp de um de nossos consultores.</p>
 						
 						<v-btn
 							dense
@@ -190,9 +190,7 @@
 					</carousel-3d>
 					</div>
 				</div>
-
 			</div>
-
 		</v-card>
 	</div>
 </template>
@@ -204,35 +202,120 @@ export default {
 		return{
 
 			bg: 1,
+			localidade: null,
 
 			slides: [
-				{
-					mb: 500,
-					src: 'https://blog.emania.com.br/wp-content/uploads/2016/02/direitos-autorais-e-de-imagem.jpg',
-				},
+			{
+						mb: 500,
+					},
 
-				
-				{
-					mb: 300,
-					src: 'https://blog.emania.com.br/wp-content/uploads/2016/02/direitos-autorais-e-de-imagem.jpg',
-				},
+					{
+						mb: 300,
+					},
 
-				
-				{
-					mb: 200,
-					src: 'https://blog.emania.com.br/wp-content/uploads/2016/02/direitos-autorais-e-de-imagem.jpg',
-				},
+					{
+						mb: 200
+					},
 			],
 
+			planos: [
+				{
+					id: 'Dourados',
+					data: [
+						{
+							mb: 500,
+						},
+	
+						{
+							mb: 300,
+						},
+	
+						{
+							mb: 200
+						},
+					]
+				},
 
+				{
+					id: 'Itaporã',
+					data: [
+						{
+							mb: 500,
+						},
+	
+						{
+							mb: 300,
+						},
+	
+						{
+							mb: 200
+						}
+					]
+				},
 
-			data_dist_cid: [
-				"Itaporã",
-				"Dourados",
-				"Montese",
-				"Santa Terezinha",
-				"Piraporã",
-				"Carumbé",
+				{
+					id: 'Montese',
+					data: [
+						{
+							mb: 300
+						},
+	
+						{
+							mb: 150
+						}
+					]
+				},
+
+				{
+					id: 'Santa Terezinha',
+					data: [
+						{
+							mb: 150
+						},
+	
+						{
+							mb: 100
+						},
+	
+						{
+							mb: 50,
+						},
+	
+						{
+							mb: 25
+						}	
+					]
+				},
+
+				{
+					id: 'Piraporã',
+					data: [
+						{
+							mb: 300
+						},
+	
+						{
+							mb: 150
+						}
+					]
+				},
+
+				{
+					id: 'Carumbé',
+					data: [
+						{
+							mb: 5
+						},
+
+						{
+							mb: 4
+						},
+
+						{
+							mb: 3
+						}
+					]
+				}
 			]
 		}
 	},
@@ -240,25 +323,34 @@ export default {
 
 	methods: {
 		change_backgorund(){
-			console.log('iniciando...');
 			setInterval(() => {
-				console.log(this.bg);
 				this.bg = this.bg + 1;
 				if(this.bg > 3){
 					this.bg = 1;
 				}
-
-				console.log(this.bg);
 			}, 3000);
 		},
 
 		redirecionar(route) {
 			this.$router.push({ path: route });
 		},
+
+		draw_plans(localidade){
+			this.planos.map(index =>{
+				if(index.id == localidade){
+					console.log(index.data);
+					this.slides = index.data;
+				}
+			})
+			
+		}
 	},
 
 	mounted(){
+		this.localidade = localStorage.getItem('master_localidade_st');
 		this.change_backgorund();
+		this.draw_plans(this.localidade);
+		
 	}
 }
 </script>

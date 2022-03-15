@@ -167,8 +167,7 @@
             <v-card
               max-width="430"
               min-height="500"
-              min-width="430"
-              max-height="500"
+              min-width="500"
               elevation="5"
               class="main-contato"
               :class="change_contato == true ? 'rotate-y-contato' : ''"
@@ -178,7 +177,8 @@
 
                 <div>
                   <h2 class="mb-2">A história</h2>
-                  <p class="text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis distinctio non corporis quisquam eos cum, iure ducimus magnam, deleniti consequatur eaque? Esse praesentium quibusdam error eum recusandae fugit et nobis! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione ex maxime rem harum voluptatum iste sapiente repellendus dolore? Laborum consectetur nam fugiat nostrum molestias doloremque dolor distinctio adipisci esse praesentium. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam reiciendis, quisquam velit repellendus aliquid odio vitae ad asperiores itaque distinctio tenetur reprehenderit blanditiis quas non expedita adipisci ullam, quam laborum.</p>
+                  <p class="text-justify">Nossa empresa está sediada na cidade de Itaporã, Mato Grosso do Sul. Atuamos no setor de tecnologia há 16 anos, iniciando no ramo da informática. Hoje, nossa infraestrutura de intercomunicação é 100% Fibra Óptica, garantindo uma qualidade de conexão superior a todos os clientes. Contamos com profisisonais graduados, com especialização e MBA em redes de computadores e telecomunicações, com vasta experiência profissional, para levar até você qualidade <b>Master</b> também em atendimento e suporte.</p>
+                  <p class="text-justify">Somos devidamente licenciados pela Anatel, com sistema autônomo e conectividade IPV4 e IPV6. A Master vem investindo em soluções de ponta para proporcionar, a cada dia mais, qualidade para os usuários e clientes empresariais. Isso se reflete também em nossos produtos e serviços.</p>
                 </div>
 
                 <v-btn

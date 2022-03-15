@@ -284,46 +284,42 @@
     </div>
 
     <v-overlay
-      opacity="0.6"
+      opacity="0.8"
       :value="overlay"
-      color="var(--blue)"
+      color="#000"
     >
 
-      <div class="d-flex flex-column align-center justify-center"> 
-        <v-card
-          width="400"
-          height="300"
-          color="var(--orange)"
-          class="pa-4"
-        >
+      <div class="d-flex flex-column full-overlay pa-8">
 
-          <div class="text-select-over d-flex flex-column justify-space-around" style="height: 100%;">
-            <div>
-              <span><b>Bem vindo!</b> <br /> Qual a sua localidade?</span>
-            </div>
+        <h2 class="h2-overlay pa-3">SELECIONE A SUA REGIÃO: </h2>
 
-            <div>
-              <v-autocomplete
-                v-model="localidade"
-                chips
-                clearable
-                small-chips
-                dense
-                filled
-                :items="database_localidade"
-                label="Selecione sua localidade"
-                color="var(--blue)"
-              ></v-autocomplete>
-
-              <v-btn
-                small
-                color="white"
-                outlined
-                class="pa-4"
-              >Acessar agora</v-btn>
-            </div>
+        <div class="d-flex">
+          <div class="list">
+            
+            <ul>
+              <li
+                v-for="(regiao, index) in database_localidade"
+                v-bind:key="index"
+              >
+              
+                <v-hover v-slot="{hover}">
+                  <span
+                    :class="hover ? 'branco-forte' : ''"
+                    @click="mudar_localidade(regiao)"
+                  >
+                    {{regiao}}
+                  </span>
+                </v-hover>
+              </li>
+            </ul>
           </div>
-        </v-card>
+
+          <div class="loading">
+            <v-loading></v-loading>
+          </div>
+        </div>
+        
+        
       </div>
 
     </v-overlay>
@@ -337,8 +333,9 @@
     name: 'Home',
     data: ()=>{
       return{
-        overlay: false,
+        overlay: true,
         localidade: null,
+        save_localidade: false,
 
         carrousel: [
           'img/teste-1.jpg',
@@ -374,15 +371,88 @@
       redirecionar(route) {
         this.$router.push({ path: route });
       },
+
+      mudar_localidade(local){
+        this.localidade = local;
+        this.save_localidade = true;
+        setTimeout(() => {
+
+          localStorage.setItem('master_localidade_st', this.localidade);
+          this.overlay = false;
+        }, 2500);
+      }
     },
 
     mounted(){
-      this.overlay = false;
+      if(localStorage.getItem('master_localidade_st') == 'null' || localStorage.getItem('master_localidade_st') == null){
+        this.overlay = true;
+      }
+
+      else{
+        this.overlay = false;
+      }
     }
   }
 </script>
 
 <style scoped>
+
+  /* Demonstrate a "mostly customized" scrollbar
+  * (won't be visible otherwise if width/height is specified) */
+  .list ul::-webkit-scrollbar {
+    width: 0px!important;
+    height: 2px!important;
+    background-color: rgb(171, 171, 171); /* or add it to the track */
+  }
+
+  /* Add a thumb */
+  .list ul::-webkit-scrollbar-thumb {
+      background: rgb(109, 109, 109);
+      height: 4px;
+  }
+
+  .branco-forte{
+    color: rgba(255, 255, 255,0.9)!important;
+    transition: 0.4s;
+    font-weight: 800!important;
+  }
+
+  .full-overlay{
+    width: 100vw;
+    height: 100vh;
+  }
+
+    .list ul{
+    height: 100%;
+    padding-right: 1.2rem;
+    padding-bottom: 2rem;
+    overflow-y: scroll;
+  }
+
+  .list ul{
+    list-style: none;
+    margin-top: 2rem;
+  }
+
+  .list ul li span{
+    display: block;
+    padding: 1.2rem;
+    padding-left: 0px;
+    font-size: 2.9rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255,0.5);
+    font-weight: 700;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+
+  .h2-overlay{
+    font-size: 2.8rem;
+    border-bottom: solid 1px rgba(255,255,255,0.24);
+    text-shadow: 1px 4px 1px rgba(0, 0, 0, 0.9);
+    font-weight: 900;
+
+  }
 
   .pulse-logo{
     animation: wpp 2.1s infinite ease-in-out;
@@ -620,6 +690,13 @@
     line-height: 25px;
   }
 
+  .box-center{
+    border: solid 1px rgba(255,255,255,0.5);
+    box-shadow: 0px 1px 3px rgba(255,255,255,0.4);
+    width: 100%;
+    
+  }
+
   @keyframes wpp{
     
     0%{
@@ -635,6 +712,18 @@
     100%{
       transform: scale(1);
       transition: 1s;
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+
+    .list ul::-webkit-scrollbar {
+      width: 3px!important;
+      height: 2px!important;
+      background-color: rgb(138, 138, 138); /* or add it to the track */
+    }
+    .list ul{
+      height: 500px!important;
     }
   }
 
