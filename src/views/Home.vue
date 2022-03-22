@@ -217,7 +217,24 @@
           <div class="button-whatsapp d-flex">
 
             <div class="social-medias d-flex align-center">
-            
+
+              <v-btn
+                color="transparent"
+                elevation="0"
+                style="color: white;"
+                class="mt-2"
+                @click="overlay =!overlay"
+              >
+                {{localidade}}
+                <v-icon
+                  size="20"
+                  color="white"
+                >
+                  mdi-chevron-down
+                </v-icon>
+
+              </v-btn>
+
               <v-hover
                 v-slot="{ hover }"
               >
@@ -314,8 +331,18 @@
             </ul>
           </div>
 
-          <div class="loading">
-            <v-loading></v-loading>
+          <div
+            class="d-flex flex-column align-center justify-center loading"
+            v-if="loadingProgress"
+          >
+            <v-progress-circular
+              indeterminate
+              :size="70"
+              :width="8"
+              color="var(--orange)"
+            ></v-progress-circular>
+
+            <span><i class="font-loading">Carregando ...</i></span>
           </div>
         </div>
         
@@ -336,6 +363,7 @@
         overlay: true,
         localidade: null,
         save_localidade: false,
+        loadingProgress: false,
 
         carrousel: [
           'img/teste-1.jpg',
@@ -375,15 +403,19 @@
       mudar_localidade(local){
         this.localidade = local;
         this.save_localidade = true;
+        this.loadingProgress = !this.loadingProgress;
         setTimeout(() => {
 
           localStorage.setItem('master_localidade_st', this.localidade);
           this.overlay = false;
+          this.loadingProgress = false;
         }, 2500);
       }
     },
 
     mounted(){
+
+      this.localidade = localStorage.getItem('master_localidade_st');
       if(localStorage.getItem('master_localidade_st') == 'null' || localStorage.getItem('master_localidade_st') == null){
         this.overlay = true;
       }
@@ -396,6 +428,7 @@
 </script>
 
 <style scoped>
+
 
   /* Demonstrate a "mostly customized" scrollbar
   * (won't be visible otherwise if width/height is specified) */
@@ -420,9 +453,24 @@
   .full-overlay{
     width: 100vw;
     height: 100vh;
+    display: flex;
   }
 
-    .list ul{
+  .list{
+    flex: 1;
+  }
+
+  .loading{
+    flex: 2;
+  }
+
+  .font-loading{
+    display: block;
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+
+  .list ul{
     height: 100%;
     padding-right: 1.2rem;
     padding-bottom: 2rem;
@@ -587,6 +635,7 @@
     right: 0;
     bottom: 0;
   }
+
 
   .left-center-box{
     height: 100%;
