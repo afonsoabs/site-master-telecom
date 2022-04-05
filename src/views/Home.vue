@@ -321,7 +321,7 @@
               
                 <v-hover v-slot="{hover}">
                   <span
-                    :class="hover ? 'branco-forte' : ''"
+                    :class="hover ? 'laranja-forte' : ''"
                     @click="mudar_localidade(regiao)"
                   >
                     {{regiao}}
@@ -444,8 +444,8 @@
       height: 4px;
   }
 
-  .branco-forte{
-    color: rgba(255, 255, 255,0.9)!important;
+  .laranja-forte{
+    color: var(--orange)!important;
     transition: 0.4s;
     font-weight: 800!important;
   }
